@@ -1,0 +1,24 @@
+apiVersion: app.example.com/v1
+kind: App
+metadata:
+  name: app-sample
+  namespace: default
+spec:
+  replicas: 2
+  image: nginx:latest
+  ports:
+    - targetPort: 80
+      port: 80
+      protocol: TCP
+  envs:
+    - name: DEMO
+      value: app2
+    - name: GOPATH
+      value: gopath
+  resource:
+    limits:
+      cpu: 100m
+      memory: 128Mi
+    requests:
+      cpu: 100m
+      memory: 128Mi
